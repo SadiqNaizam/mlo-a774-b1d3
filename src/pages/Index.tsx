@@ -4,6 +4,7 @@ import FunnelCount from '../components/Dashboard/FunnelCount';
 import SourceBreakdown from '../components/Dashboard/SourceBreakdown';
 import LeadTrackingChart from '../components/Dashboard/LeadTrackingChart';
 import ReasonCards from '../components/Dashboard/ReasonCards';
+import { ThemeProvider } from '@/components/theme-provider';
 
 /**
  * DashboardPage component.
@@ -14,29 +15,31 @@ import ReasonCards from '../components/Dashboard/ReasonCards';
  */
 const IndexPage: React.FC = () => {
   return (
-    <MainAppLayout>
-      {/* 
-        The main content area uses a flex container to stack the dashboard sections vertically.
-        A gap is used for consistent spacing between sections.
-      */}
-      <div className="flex flex-col gap-6">
+    <ThemeProvider defaultTheme="system" storageKey="ui-theme">
+      <MainAppLayout>
         {/* 
-          First row of the dashboard: FunnelCount and SourceBreakdown.
-          This uses a responsive grid. On smaller screens (mobile/tablet), they stack vertically.
-          On extra-large screens (xl and up), they appear side-by-side in two columns.
+          The main content area uses a flex container to stack the dashboard sections vertically.
+          A gap is used for consistent spacing between sections.
         */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-          <FunnelCount />
-          <SourceBreakdown />
+        <div className="flex flex-col gap-6">
+          {/* 
+            First row of the dashboard: FunnelCount and SourceBreakdown.
+            This uses a responsive grid. On smaller screens (mobile/tablet), they stack vertically.
+            On extra-large screens (xl and up), they appear side-by-side in two columns.
+          */}
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <FunnelCount />
+            <SourceBreakdown />
+          </div>
+
+          {/* Second row: LeadTrackingChart. This component spans the full width. */}
+          <LeadTrackingChart />
+
+          {/* Third row: ReasonCards. This component also spans the full width. */}
+          <ReasonCards />
         </div>
-
-        {/* Second row: LeadTrackingChart. This component spans the full width. */}
-        <LeadTrackingChart />
-
-        {/* Third row: ReasonCards. This component also spans the full width. */}
-        <ReasonCards />
-      </div>
-    </MainAppLayout>
+      </MainAppLayout>
+    </ThemeProvider>
   );
 };
 
