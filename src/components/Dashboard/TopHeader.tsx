@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { CalendarDays, ChevronDown } from 'lucide-react';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const TopHeader: React.FC = () => {
   return (
@@ -44,6 +45,7 @@ const TopHeader: React.FC = () => {
             <DropdownMenuItem>New Invoice</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <ThemeToggle />
       </div>
     </header>
   );
