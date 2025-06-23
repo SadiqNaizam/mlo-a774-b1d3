@@ -81,7 +81,7 @@ const SidebarNav: React.FC = () => {
                     className={cn(
                       'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium',
                       item.active 
-                        ? 'bg-blue-50 text-blue-600' 
+                        ? 'bg-primary text-primary-foreground' 
                         : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
                     )}
                   >
@@ -92,7 +92,7 @@ const SidebarNav: React.FC = () => {
               ))}
             </ul>
           </div>
-        ))}
+        ))}\
       </nav>
       <div className="mt-auto p-4 border-t">
         <ul className="space-y-1">
